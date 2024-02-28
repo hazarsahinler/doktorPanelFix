@@ -78,6 +78,18 @@ public class Doktor {
             joinColumns = { @JoinColumn(name = "doktor_id") },
             inverseJoinColumns = { @JoinColumn(name = "hizmet_id") })
     private List<Hizmet> hizmetList = new ArrayList<>();
+    @OneToMany(mappedBy = "doktor", cascade = CascadeType.ALL)
+    List<AdresBilgileri> adresBilgileriList;
+
+    @OneToMany(mappedBy = "doktor", cascade = CascadeType.ALL)
+    List<Alınan_Eğitimler> alınanEğitimlerList;
+
+    @OneToMany(mappedBy = "doktor", cascade = CascadeType.ALL)
+    List<İş_deneyimi> i̇şDeneyimiList;
+    @OneToMany(mappedBy = "doktor", cascade = CascadeType.ALL)
+    List<Telefon_Bilgileri> telefonBilgileriList;
+
+
 
     public Doktor() {
     }
@@ -86,6 +98,46 @@ public class Doktor {
         this.ad = ad;
         this.soyAd = soyAd;
         this.foto = foto;
+    }
+
+    public List<Telefon_Bilgileri> getTelefonBilgileriList() {
+        return telefonBilgileriList;
+    }
+
+    public void setTelefonBilgileriList(List<Telefon_Bilgileri> telefonBilgileriList) {
+        this.telefonBilgileriList = telefonBilgileriList;
+    }
+
+    public List<İş_deneyimi> getİşDeneyimiList() {
+        return i̇şDeneyimiList;
+    }
+
+    public void setİşDeneyimiList(List<İş_deneyimi> i̇şDeneyimiList) {
+        this.i̇şDeneyimiList = i̇şDeneyimiList;
+    }
+
+    public List<Alınan_Eğitimler> getAlınanEğitimlerList() {
+        return alınanEğitimlerList;
+    }
+
+    public void setAlınanEğitimlerList(List<Alınan_Eğitimler> alınanEğitimlerList) {
+        this.alınanEğitimlerList = alınanEğitimlerList;
+    }
+
+    public List<Hizmet> getHizmetList() {
+        return hizmetList;
+    }
+
+    public void setHizmetList(List<Hizmet> hizmetList) {
+        this.hizmetList = hizmetList;
+    }
+
+    public List<AdresBilgileri> getAdresBilgileriList() {
+        return adresBilgileriList;
+    }
+
+    public void setAdresBilgileriList(List<AdresBilgileri> adresBilgileriList) {
+        this.adresBilgileriList = adresBilgileriList;
     }
 
     public int getDoktor_id() {
