@@ -7,31 +7,36 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "adres_bilgileri")
-public class AdresBilgileri {
+public class Adress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "adress_id")
+    private int adressId;
 
     @Lob
     @Column(name = "adress")
     private String adress;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "doktor_id",nullable = false)
+    @JoinColumn(name = "doctor_id",nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-   Doktor doktor;
+    Doctor doctor;
 
-    public AdresBilgileri(){
+    public Adress(){
 
     }
 
-    public int getId() {
-        return id;
+    public Adress(String adress) {
+        this.adress = adress;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getAdressId() {
+        return adressId;
+    }
+
+    public void setAdressId(int adressId) {
+        this.adressId = adressId;
     }
 
     public String getAdress() {
@@ -42,19 +47,12 @@ public class AdresBilgileri {
         this.adress = adress;
     }
 
-    public Doktor getDoktor() {
-        return doktor;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoktor(Doktor doktor) {
-        this.doktor = doktor;
-    }
-
-    @Override
-    public String toString() {
-        return "AdresBilgileri{" +
-                "id=" + id +
-                '}';
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }
 
