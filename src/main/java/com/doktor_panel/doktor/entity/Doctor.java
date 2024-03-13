@@ -31,6 +31,17 @@ public class Doctor {
     private String Diseases;
     @Lob
     private String  Institutions;
+    @Lob
+    private String iban_acc_holder;
+    @Lob
+    private String iban;
+    private int physicalInterviewPrice;
+    private int onlineInterviewPrice;
+    private int onlineTime;
+    private int onlineQuestionPrice;
+
+
+
 }
 
 

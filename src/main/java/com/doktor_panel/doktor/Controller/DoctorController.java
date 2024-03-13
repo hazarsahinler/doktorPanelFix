@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/doctor")
 public class DoctorController {
     @Autowired
     DoctorRepository doctorRepository;
+
+
     //get all doctors
     @GetMapping
     public List<Doctor> getAllDoctors(){
@@ -55,6 +55,7 @@ public class DoctorController {
     public ResponseEntity<Doctor> createDoctor(@RequestBody Doctor doctor) {
         Doctor _doctor;
         _doctor = doctorRepository.save(doctor);
+
         return new ResponseEntity<>(_doctor, HttpStatus.CREATED);
     }
 
