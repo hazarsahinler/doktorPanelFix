@@ -31,17 +31,7 @@ public class DoctorController {
     //get doctors by language
     @GetMapping("/languages/{language}")
     public List<Doctor> getDoctorsByLanguages(@PathVariable String language) {
-        List<Doctor> allDoctors = doctorRepository.findAll();
-        List<Doctor> doctorsByLanguage = new ArrayList<>();
-
-        for (Doctor doctor : allDoctors) {
-            List<String> languages = doctor.getLanguages();
-            if (languages != null && languages.contains(language)) {
-                doctorsByLanguage.add(doctor);
-            }
-        }
-
-        return doctorsByLanguage;
+        return doctorRepository.findByLanguages(language);
     }
     //get doctor by title
     @GetMapping("/title/{title}")

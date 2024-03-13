@@ -39,6 +39,13 @@ public class Doctor {
     private int onlineInterviewPrice;
     private int onlineTime;
     private int onlineQuestionPrice;
+    @ElementCollection
+    @CollectionTable(name = "Doctor_phoneNumber", joinColumns = @JoinColumn(name = "DoctorId"))
+    @Column(name = "phoneNumber", length = 11)
+    private List<String> phoneNumbers;
+    private String city;
+    @Lob
+    private String adress;
 
 
 
